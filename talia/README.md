@@ -23,6 +23,6 @@ In conclusion, an attempt was made to satisfy two goals. The first was to reimag
   
 We started with a modern, but fairly well-known, data lake architecture. Apache Hadoop and Hbase are both over a dozen years old and products are available from multiple publicly traded companies. For the blockchain, I used IBM's Hyperledger Fabric, an Apache-licensed open source framework. I wrote the blockcahin service in Go, but Talia is written in Java, which is a much more accessible enterprise language. I did use Apache Atlas, which is open source but currently only used by Hortonworks. There is nothing preventing it from being used with other distributions, though. 
 
-Taking the MIT specification and implementing it using Hyperledger is definitely possible. Adding the additional tagging fucntionality to HBase is cutting-edge but not unreasonable. Atlas is alpha but moving forward steadily.
+Taking the MIT specification and implementing it using Hyperledger is definitely possible. Adding the additional tagging functionality to HBase is cutting-edge but not unreasonable. Atlas is alpha but moving forward steadily.
 
 In conclusion, using the blockchain for security metadata and tagging to manage access, provide auditing and provenance information while integrating into an existing HealthIT solution in this manner is not unreasonable.   
