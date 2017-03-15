@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.hadoop.hbase.HbaseTemplate;
 import org.springframework.stereotype.Component;
 
+@Component
 public class EhrUtils implements InitializingBean{
 	private String tableName = "ehr";
 	private byte[] tableNameAsBytes = Bytes.toBytes("ehr");
@@ -49,9 +50,9 @@ public class EhrUtils implements InitializingBean{
 
 	}
 
-	public void addUsers() {
+	public void addEhr() {
 		for (int i = 0; i < 10; i++) {
-			ehrRepository.save("ehr" + i,"secret" + i);
+			ehrRepository.save("ehr" + i,"secret" + i, "message" + 1);
 		}		
 	}
 

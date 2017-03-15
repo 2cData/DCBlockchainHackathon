@@ -8,4 +8,5 @@ import lombok.Value;
 public class Ehr {
 	private String enrollId;
 	private String enrollSecret;
+	private String message;
 }
