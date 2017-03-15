@@ -9,7 +9,6 @@ import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.Tag;
 import org.apache.hadoop.hbase.TagType;
-import org.apache.hadoop.hbase.TagUtil;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
@@ -37,13 +36,7 @@ public class EhrRepository {
 	  	  public static final String VISIBILITY_LABEL_GENERATOR_CLASS =
 	      "hbase.regionserver.scan.visibility.label.generator.class";
 	  public static final String SYSTEM_LABEL = "system";
-	  public static final Tag SORTED_ORDINAL_SERIALIZATION_FORMAT_TAG = new ArrayBackedTag(
-	      TagType.VISIBILITY_EXP_SERIALIZATION_TAG_TYPE,
-	      VisibilityConstants.SORTED_ORDINAL_SERIALIZATION_FORMAT_TAG_VAL);
-	  private static final String COMMA = ",";
 
-	  private static final ExpressionParser EXP_PARSER = new ExpressionParser();
-	  private static final ExpressionExpander EXP_EXPANDER = new ExpressionExpander();
 	  
 	public List<Ehr> findAll() {
 		return hbaseTemplate.find(tableName, "cfInfo", new RowMapper<Ehr>() {
@@ -85,35 +78,35 @@ public class EhrRepository {
 		  return false;
 		}
 	
-	  public static Byte extractVisibilityTags(Cell cell, List<Tag> tags) {
-		    Byte serializationFormat = null;
-		    Iterator<Tag> tagsIterator = CellUtil.tagsIterator(cell);
-		    while (tagsIterator.hasNext()) {
-		      Tag tag = tagsIterator.next();
-		      if (tag.getType() == TagType.VISIBILITY_EXP_SERIALIZATION_TAG_TYPE) {
-		        serializationFormat = TagUtil.getValueAsByte(tag);
-		      } else if (tag.getType() == VISIBILITY_TAG_TYPE) {
-		        tags.add(tag);
-		      }
-		    }
-		    return serializationFormat;
-		  }
-	  public static Byte extractAndPartitionTags(Cell cell, List<Tag> visTags,
-		      List<Tag> nonVisTags) {
-		    Byte serializationFormat = null;
-		    Iterator<Tag> tagsIterator = CellUtil.tagsIterator(cell);
-		    while (tagsIterator.hasNext()) {
-		      Tag tag = tagsIterator.next();
-			if (tag.getType() == TagType.VISIBILITY_EXP_SERIALIZATION_TAG_TYPE) {
-		        serializationFormat = TagUtil.getValueAsByte(tag);
-		      } else if (tag.getType() == VISIBILITY_TAG_TYPE) {
-		        visTags.add(tag);
-		      } else {
-		        // ignore string encoded visibility expressions, will be added in replication handling
-		        nonVisTags.add(tag);
-		      }
-		    }
-		    return serializationFormat;
-		  }
+//	  public static Byte extractVisibilityTags(Cell cell, List<Tag> tags) {
+//		    Byte serializationFormat = null;
+//		    Iterator<Tag> tagsIterator = CellUtil.tagsIterator(cell);
+//		    while (tagsIterator.hasNext()) {
+//		      Tag tag = tagsIterator.next();
+//		      if (tag.getType() == TagType.VISIBILITY_EXP_SERIALIZATION_TAG_TYPE) {
+//		        serializationFormat = TagUtil.getValueAsByte(tag);
+//		      } else if (tag.getType() == VISIBILITY_TAG_TYPE) {
+//		        tags.add(tag);
+//		      }
+//		    }
+//		    return serializationFormat;
+//		  }
+//	  public static Byte extractAndPartitionTags(Cell cell, List<Tag> visTags,
+//		      List<Tag> nonVisTags) {
+//		    Byte serializationFormat = null;
+//		    Iterator<Tag> tagsIterator = CellUtil.tagsIterator(cell);
+//		    while (tagsIterator.hasNext()) {
+//		      Tag tag = tagsIterator.next();
+//			if (tag.getType() == TagType.VISIBILITY_EXP_SERIALIZATION_TAG_TYPE) {
+//		        serializationFormat = TagUtil.getValueAsByte(tag);
+//		      } else if (tag.getType() == VISIBILITY_TAG_TYPE) {
+//		        visTags.add(tag);
+//		      } else {
+//		        // ignore string encoded visibility expressions, will be added in replication handling
+//		        nonVisTags.add(tag);
+//		      }
+//		    }
+//		    return serializationFormat;
+//		  }
 }
 
