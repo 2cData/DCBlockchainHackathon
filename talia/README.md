@@ -25,4 +25,4 @@ We started with a modern, but fairly well-known, data lake architecture. Apache 
 
 Taking the MIT specification and implementing it using Hyperledger is definitely possible. Adding the additional tagging fucntionality to HBase is cutting-edge but not unreasonable. Atlas is alpha but moving forward steadily.
 
-In conclusion, using the blockchain for security metadata and tagging to manage access, provide auditing and provenance information while integrating into existing HealthIT solution in this manner is not unreasonable.   
+In conclusion, using the blockchain for security metadata and tagging to manage access, provide auditing and provenance information while integrating into an existing HealthIT solution in this manner is not unreasonable.   
