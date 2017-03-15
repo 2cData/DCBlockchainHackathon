@@ -9,5 +9,12 @@ Let's start at the data layer. We're moving our primary data storage from schema
 
 Normally, Apache Knox handles authentication and Apache Ranger handles authorization. However, I mentioned something about inversion ....
 
-   
+As part of MIT's blockchain initiative, Enigma, a paper envisioned blockchain as an automated access control manager to enable a personal data management system. At the core of the paper is the idea of combining blockchain and off-blockchain storage. The goal is to provide clear data ownership, data transparency and auditability and fine-grained access control.
+
+There are three entities: users, services and nodes. The blockchain accepts two types of transactions: access and data. Access transactions are used for data control management. Data transactions are used for data storage and retrieval.
+
+For example, a user installs an application to access EHR from a particular provider. A new compound identity is created (shared user and service), as long with associated permissions to the blockchain as an access transaction. Data collected is encrypted using the shared encryption key and sent to the blockchain in a data transaction, which subsequently routes the data to an off-blockchain key-value store. The blockchain just keeps a SHA-256 hash of the data. Both the service and the user can now query the data with data transactions using just the pointer. The user can change permissions at any time by issuing an access transaction with a new set of permissions.  
+
+From the perspective of a running IT system, placing all of the data governance in a new system like blockhainc, 
+  
 
