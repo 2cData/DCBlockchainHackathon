@@ -29,6 +29,6 @@ It also has a deeper meaning. We are going to approach this problem from the per
 Let's start at the data layer. We're moving our primary data storage from schema-on-write to schema-on-read. Apache Hbase is a sparse, distributed, persistent multidimensional sorted map, which is indexed by a row key, column key, and a timestamp. At a basic level, this enables a system that can conform to patient since it is fully flexible. In Hbase, a cell is made up of a key-value pair that's accessed by a row key. A cell can have 0..n tags. These tags can be used as visibility labels and access can be granted based on roles and/or a custom, pluggable algorithm. Basically, its possible to encode multiple layers of tag-based access information directly into a single data point. In fact, the code to do that is included here. 
 
 Normally, Apache Knox handles authentication and Apache Ranger handles authorization. However, I mentioned something about inversion ....
-
+a
    
 
