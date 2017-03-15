@@ -28,8 +28,6 @@ public class EhrFabric {
 	private EhrRepository ehrRepository;
 
 	private static final HttpLoggingInterceptor HTTP_LOGGING_INTERCEPTOR = new HttpLoggingInterceptor();
-	private static final String ENROLL_ID = "user_type1_2";
-	private static final String ENROLL_SECRET = "54c5466fc1";
 	private static final String APP_NAME = "learn-chaincode";
 	private static final String APP_PATH = "https://github.com/2cData/learn-chaincode/finished";
 	private static final String VP = "https://2f79a5e7cd8c40d6b1541a6dc6814538-vp0.us.blockchain.ibm.com:5003";
